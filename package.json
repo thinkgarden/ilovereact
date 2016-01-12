@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/thinkgarden/ilovereact/issues"
   },
-  "homepage": "https://github.com/thinkgarden/ilovereact#readme"
+  "homepage": "https://github.com/thinkgarden/ilovereact#readme",
+  "dependencies": {
+    "browser-sync": "^2.9.3"
+  },
+  "devDependencies": {
+    "postcss-cli": "^2.1.0"
+  }
 }
