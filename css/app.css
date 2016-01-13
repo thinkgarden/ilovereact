@@ -81,14 +81,64 @@ a:hover {
   flex-grow:1;
   align-self:stretch;
   flex-basis:0;
-  align-items:center;
-  justify-content:center
+  align-items: center;
+  justify-content: center;
 }
-.iphone-demo img{
-  /*max-width: 100%;
-  box-sizing: border-box;
-  padding: 30px;*/
+.iphone-demo .img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.feature-description {
 
+#android-robot{
+  position: absolute;
+  right: -90px;
+  bottom: -130px;
+  transform: rotate(-45deg);
+}
+
+#slider-control {
+  padding: 3px;
+  position: fixed;
+  right:15px;
+  top:45%;
+  z-index: 99;
+}
+
+#slider-control a {
+  padding: 3px;
+}
+
+#slider-control .dot {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+
+#slider-control .active .dot {
+  background-color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  top:0;
+  left:0;
+  bottom: 0;
+  right:0;
+  background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1));
+}
+
+#intro-section {
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+
+#intro-section h1,
+#intro-section .nav{
+  position: relative;
+  z-index: 3;
 }
