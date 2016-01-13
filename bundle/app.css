@@ -508,6 +508,7 @@ a:hover {
   -webkit-align-items:center;
       -ms-flex-align:center;
           align-items:center;
+  overflow: hidden;
 }
 
 .nav{
@@ -573,10 +574,10 @@ a:hover {
 
 #android-robot{
   position: absolute;
-  right: -90px;
-  bottom: -130px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  right:0;
+  bottom: 0;
+  -webkit-transform: translate(50%,50%) rotate(-45deg);
+          transform: translate(50%,50%) rotate(-45deg);
 }
 
 #slider-control {
