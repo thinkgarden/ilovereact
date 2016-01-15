@@ -62,6 +62,10 @@ a:hover {
   overflow: hidden;
 }
 
+#react-logo{
+  position: relative;
+}
+
 .nav{
   display: flex;
   flex-direction:row;
@@ -131,15 +135,15 @@ a:hover {
   background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1));
 }
 
-#intro-section {
+#native  {
   background-image: url(../img/background.jpg);
   background-size: cover;
   background-position: center;
 }
 
 
-#intro-section h1,
-#intro-section .nav{
+#native  h1,
+#native .nav{
   position: relative;
   z-index: 3;
 }
