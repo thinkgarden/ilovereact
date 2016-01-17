@@ -495,11 +495,21 @@ a:hover {
 }
 
 .section {
+  width:100%;
   height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
+}
+
+.row{
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack:center;
   -webkit-justify-content:center;
       -ms-flex-pack:center;
@@ -508,11 +518,28 @@ a:hover {
   -webkit-align-items:center;
       -ms-flex-align:center;
           align-items:center;
-  overflow: hidden;
+}
+
+.column{
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -webkit-flex-direction:column;
+      -ms-flex-direction:column;
+          flex-direction:column;
+  -webkit-box-pack:center;
+  -webkit-justify-content:center;
+      -ms-flex-pack:center;
+          justify-content:center;
+  -webkit-box-align:center;
+  -webkit-align-items:center;
+      -ms-flex-align:center;
+          align-items:center;
 }
 
 #react-logo{
-  position: relative;
+  position: relative; /*图片默认position是static，所以即使修改x,y也不能改变位置，因此设置成relative*/
+  width: 300px;
+  margin-top:-10%;
 }
 
 .nav{
@@ -539,35 +566,27 @@ a:hover {
   padding:16px;
 }
 
-.section.row{
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+
+#iphone-overlay{
+  position: absolute;
+  left:0;
+  width:100%;
+  height: 100%;
+  -webkit-transform:translate(0,-20%);
+          transform:translate(0,-20%);
+  z-index: 3;
+  /*background: rgba(255,0,0, 0.3);*/
 }
 
-.iphone-demo,
+
 .feature-description {
-  -webkit-box-flex:1;
-  -webkit-flex-grow:1;
-      -ms-flex-positive:1;
-          flex-grow:1;
-  -webkit-align-self:stretch;
-      -ms-flex-item-align:stretch;
-          align-self:stretch;
-  -webkit-flex-basis:0;
-      -ms-flex-preferred-size:0;
-          flex-basis:0;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  position: absolute;
+  right: 0;
+  width:50%;
+  height: 100%;
+  padding: 50px;
 }
+
 .iphone-demo .img{
   position: absolute;
   top: 50%;
@@ -624,8 +643,29 @@ a:hover {
 }
 
 
-#native  h1,
+#native  h2,
 #native .nav{
   position: relative;
   z-index: 3;
+}
+
+.fade-overlay{
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width:100%;
+  background: #1F1E34;
+  opacity:0;
+  z-index: 2;
+}
+
+@media(max-height: 640px){
+  #react-logo{
+    margin-top: -10%;
+    width:200px;
+  }
+  h2{
+    font-size: 36px;
+  }
 }

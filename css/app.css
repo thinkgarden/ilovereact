@@ -55,15 +55,28 @@ a:hover {
 }
 
 .section {
+  width:100%;
   height: 100%;
   display: flex;
-  justify-content:center;
-  align-items:center;
   overflow: hidden;
 }
 
+.row{
+  flex-direction: row;
+  justify-content:center;
+  align-items:center;
+}
+
+.column{
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
 #react-logo{
-  position: relative;
+  position: relative; /*图片默认position是static，所以即使修改x,y也不能改变位置，因此设置成relative*/
+  width: 300px;
+  margin-top:-10%;
 }
 
 .nav{
@@ -77,18 +90,26 @@ a:hover {
   padding:16px;
 }
 
-.section.row{
-  flex-direction: row;
+
+#iphone-overlay{
+  position: absolute;
+  left:0;
+  width:100%;
+  height: 100%;
+  transform:translate(0,-20%);
+  z-index: 3;
+  /*background: rgba(255,0,0, 0.3);*/
 }
 
-.iphone-demo,
+
 .feature-description {
-  flex-grow:1;
-  align-self:stretch;
-  flex-basis:0;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  right: 0;
+  width:50%;
+  height: 100%;
+  padding: 50px;
 }
+
 .iphone-demo .img{
   position: absolute;
   top: 50%;
@@ -142,8 +163,29 @@ a:hover {
 }
 
 
-#native  h1,
+#native  h2,
 #native .nav{
   position: relative;
   z-index: 3;
+}
+
+.fade-overlay{
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width:100%;
+  background: #1F1E34;
+  opacity:0;
+  z-index: 2;
+}
+
+@media(max-height: 640px){
+  #react-logo{
+    margin-top: -10%;
+    width:200px;
+  }
+  h2{
+    font-size: 36px;
+  }
 }

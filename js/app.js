@@ -3,6 +3,7 @@ window.onload=function () {
   animateRobot();
   updateSliderControl();
   addSmoothScrolling();
+  addScrollBling();
 }
 
 window.onscroll=function(){
@@ -33,22 +34,19 @@ function updateSliderControl(){
 
 function animateRobot() {
   var t = new TimelineMax({yoyo: true, repeat: -1});
-  t.to("#android-robot",1,{rotation: "-60deg"})
-  t.to("#android-robot",0.5,{rotation: "-45deg"})
-  t.to("#android-robot",1,{rotation: "-30deg"});
-  t.to("#android-robot",0.5,{rotation: "-45deg"})
+  t.to("#android-robot",1,{rotation: "-50deg"}).to("#android-robot",0.5,{rotation: "-40deg"});
 }
 
 function animateLogo() {
   TweenMax.fromTo("#react-logo",2, {
     // from
     css: {
-      y: "-30px",
+      y: "-25px",
     }
   },{
     // to
     css: {
-      y: "30px",
+      y: "25px",
     },
     // 永久重复动画的选项
     repeat: -1,
@@ -86,3 +84,32 @@ function addSmoothScrolling(){
    }) (i);
   };
 }
+
+function addScrollBling(){
+  var controller = new ScrollMagic.Controller();
+  var scene1 = new ScrollMagic.Scene({
+    triggerElement: "#touch" ,
+    triggerHook: "onEnter",
+    duration: "100%"
+  })
+  .setTween("#native .fade-overlay", 1, {opacity:1})
+  // .addIndicators({name: "1 (opacity: 1)"})
+  .addTo(controller);
+
+  var scene2 = new ScrollMagic.Scene({
+      triggerElement: "#native" ,
+      triggerHook: "onLeave",
+      duration: "100%" })
+      .setTween("#iphone-overlay", 1, {width: "50%", y: 0})
+      // .addIndicators({name: "2 (y: 0)"})
+      .addTo(controller);
+
+  var scene3 = new ScrollMagic.Scene({
+      triggerElement: "#touch" ,
+      triggerHook: "onLeave",
+      duration: "100%"})
+      .setPin("#iphone-overlay")
+      // .addIndicators({name: "3 (pin iphone)"})
+      .addTo(controller);
+}
+
