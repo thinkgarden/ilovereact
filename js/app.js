@@ -89,7 +89,7 @@ function addScrollBling(){
   var controller = new ScrollMagic.Controller();
   var scene1 = new ScrollMagic.Scene({
     triggerElement: "#touch" ,
-    triggerHook: "onEnter",
+    triggerHook: 1,
     duration: "100%"
   })
   .setTween("#native .fade-overlay", 1, {opacity:1})
@@ -98,18 +98,18 @@ function addScrollBling(){
 
   var scene2 = new ScrollMagic.Scene({
       triggerElement: "#native" ,
-      triggerHook: "onLeave",
+      triggerHook: 0,
       duration: "100%" })
       .setTween("#iphone-overlay", 1, {width: "50%", y: 0})
-      // .addIndicators({name: "2 (y: 0)"})
+      .addIndicators({name: "2 (y: 0)"})
       .addTo(controller);
 
   var scene3 = new ScrollMagic.Scene({
       triggerElement: "#touch" ,
-      triggerHook: "onLeave",
+      triggerHook: "0",
       duration: "100%"})
-      .setPin("#iphone-overlay")
-      // .addIndicators({name: "3 (pin iphone)"})
+      .setPin("#iphone-overlay",{pushFollowers: false})
+      .addIndicators({name: "3 (pin iphone)"})
       .addTo(controller);
 }
 
